@@ -34,6 +34,7 @@ jobs:
                   vcs import src < src/raspicam_driver/dependency.repos
                   cd ~/ros2_ws/src
                   rosdep install -r -y --from-paths . --ignore-src
+                  find -name raspicamConfig.cmake
             - name: Build packages
               run: |
                   source /opt/ros/eloquent/setup.bash
