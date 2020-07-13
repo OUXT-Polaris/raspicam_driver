@@ -60,7 +60,14 @@ extern "C" {
 #endif
 
 #include <rclcpp/rclcpp.hpp>
-#include <raspicam/raspicam.h>
+#include <builtin_interfaces/msg/time.hpp>
+#include <raspicam/raspicam_cv.h>
+#include <sensor_msgs/image_encodings.hpp>
+#include <sensor_msgs/msg/image.hpp>
+#include <sensor_msgs/msg/compressed_image.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <string>
+#include <vector>
 
 namespace raspicam_driver
 {
@@ -69,9 +76,23 @@ class RaspiCamDriverComponent : public rclcpp::Node
 public:
   RASPICAM_DRIVER_RASPICAM_DRIVER_COMPONENT_PUBLIC
   explicit RaspiCamDriverComponent(const rclcpp::NodeOptions & options);
+  ~RaspiCamDriverComponent();
+
 private:
-  raspicam::RaspiCam Camera;
+  raspicam::RaspiCam_Cv Camera;
+  bool enable_trigger_;
+  double trigger_duration_;
+  void triggerCallback(const builtin_interfaces::msg::Time::SharedPtr msg);
+  void timerCallback();
+  bool captureImage(rclcpp::Time stamp);
+  bool compress_;
+  std::string frame_id_;
+  int capture_duration_;
+  std::vector<int> params_;
+  rclcpp::Publisher<sensor_msgs::msg::CompressedImage>::SharedPtr compressed_image_pub_;
+  rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_pub_;
+  rclcpp::TimerBase::SharedPtr timer_;
 };
-}
+}  // namespace raspicam_driver
 
 #endif  // RASPICAM_DRIVER__RASPICAM_DRIVER_COMPONENT_HPP_

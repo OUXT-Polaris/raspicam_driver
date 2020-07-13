@@ -11,6 +11,7 @@
 
   <depend>rclcpp</depend>
   <depend>rclcpp_components</depend>
+  <depend>compressed_image_transport</depend>
   <depend>image_transport</depend>
   <depend>cv_bridge</depend>
   <depend>camera_calibration_parsers</depend>
