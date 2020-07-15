@@ -24,8 +24,8 @@ find_package(compressed_image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(camera_calibration_parsers REQUIRED)
 find_package(diagnostic_updater REQUIRED)
-
 find_package(raspicam REQUIRED)
+
 find_package(OpenCV REQUIRED)
 
 include_directories(
