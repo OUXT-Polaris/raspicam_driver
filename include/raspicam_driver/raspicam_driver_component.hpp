@@ -61,6 +61,7 @@ extern "C" {
 
 #include <rclcpp/rclcpp.hpp>
 #include <builtin_interfaces/msg/time.hpp>
+#include <diagnostic_updater/diagnostic_updater.hpp>
 #include <raspicam/raspicam_cv.h>
 #include <sensor_msgs/image_encodings.hpp>
 #include <sensor_msgs/msg/image.hpp>
@@ -84,6 +85,7 @@ private:
   double trigger_duration_;
   void triggerCallback(const builtin_interfaces::msg::Time::SharedPtr msg);
   void timerCallback();
+  void diagCallback();
   bool captureImage(rclcpp::Time stamp);
   bool compress_;
   std::string frame_id_;
@@ -92,6 +94,11 @@ private:
   rclcpp::Publisher<sensor_msgs::msg::CompressedImage>::SharedPtr compressed_image_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_pub_;
   rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp::TimerBase::SharedPtr raspicam_timer_;
+  diagnostic_updater::Updater diag_updater_;
+  void captureRateDiag(diagnostic_updater::DiagnosticStatusWrapper & status);
+  rclcpp::Subscription<builtin_interfaces::msg::Time>::SharedPtr trigger_sub_;
+  rclcpp::Time last_capture_time_;
 };
 }  // namespace raspicam_driver
 

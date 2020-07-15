@@ -23,6 +23,7 @@ find_package(image_transport REQUIRED)
 find_package(compressed_image_transport REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(camera_calibration_parsers REQUIRED)
+find_package(diagnostic_updater REQUIRED)
 
 find_package(raspicam REQUIRED)
 find_package(OpenCV REQUIRED)
@@ -40,6 +41,7 @@ ament_target_dependencies(raspicam_driver_component
   rclcpp_components
   image_transport
   camera_calibration_parsers
+  diagnostic_updater
   cv_bridge)
 rclcpp_components_register_nodes(raspicam_driver_component
   "raspicam_drive::RaspiCamDriverComponent")
