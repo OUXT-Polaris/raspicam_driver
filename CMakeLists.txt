@@ -42,7 +42,8 @@ ament_target_dependencies(raspicam_driver_component
   image_transport
   camera_calibration_parsers
   diagnostic_updater
-  cv_bridge)
+  cv_bridge
+  raspicam)
 rclcpp_components_register_nodes(raspicam_driver_component
   "raspicam_drive::RaspiCamDriverComponent")
 
