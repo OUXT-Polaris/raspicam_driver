@@ -12,6 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/**
+ * @file raspicam_driver_component.cpp
+ * @author Masaya Kataoka (ms.kataoka@gmail.com)
+ * @brief implementation of the RaspiCamDriverComponent class
+ * @version 0.1
+ * @date 2020-07-24
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
 #include <raspicam_driver/raspicam_driver_component.hpp>
 
 #include <rclcpp_components/register_node_macro.hpp>
@@ -59,7 +69,7 @@ RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & opt
       create_wall_timer(std::chrono::milliseconds(capture_duration_),
         std::bind(&RaspiCamDriverComponent::timerCallback, this));
     using namespace std::literals::chrono_literals;
-    raspicam_timer_ =
+    diag_timer_ =
       create_wall_timer((100ms), std::bind(&RaspiCamDriverComponent::diagCallback, this));
   }
 }

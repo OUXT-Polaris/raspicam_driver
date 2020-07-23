@@ -13,14 +13,11 @@
 // limitations under the License.
 
 /**
- * @file raspicam_driver_component.hpp
- */
-
-/**
  * @mainpage view_all node for color_names
  * @image html images/logo.png
  * @author Masaya Kataoka
- * @date 2020-07-17
+ * @date 2020-07-24
+ * @brief ROS2 component for publishing images by using raspicam
  */
 
 #ifndef RASPICAM_DRIVER__RASPICAM_DRIVER_COMPONENT_HPP_
@@ -102,22 +99,76 @@ private:
    * @brief if true, this node works with trigger mode
    */
   bool enable_trigger_;
+  /**
+   * @brief if the durtion between trigger message timestamp
+   *  and current ROS timestamp is over trigger duration, this component does not capture image
+   */
   double trigger_duration_;
+  /**
+   * @brief callback function for capture images, if the durtion between message timestamp
+   *  and current ROS timestamp is over trigger duration, this component does not capture image
+   * @param msg
+   */
   void triggerCallback(const builtin_interfaces::msg::Time::SharedPtr msg);
+  /**
+   * @brief callback function for captureimg images (it only works in timer mode)
+   */
   void timerCallback();
+  /**
+   * @brief callback function for diagnostics (it only works in timer mode)
+   */
   void diagCallback();
   bool captureImage(rclcpp::Time stamp);
+  /**
+   * @brief if true, publish image as sensor_msgs/msg/CompressedImage (jpeg format)
+   */
   bool compress_;
+  /**
+   * @brief optical frame id of the camera (ex. front_camera_optical)
+   */
   std::string frame_id_;
+  /**
+   * @brief capture duration in timer mode (ms)
+   */
   int capture_duration_;
+  /**
+   * @brief parameter for compressing images by jpeg method
+   */
   std::vector<int> params_;
+  /**
+   * @brief ROS Publishr for publishing compressed image
+   */
   rclcpp::Publisher<sensor_msgs::msg::CompressedImage>::SharedPtr compressed_image_pub_;
+  /**
+   * @brief ROS Publisher for raw image
+   */
   rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr image_pub_;
+  /**
+   * @brief timer for the captureimg images
+   */
   rclcpp::TimerBase::SharedPtr timer_;
-  rclcpp::TimerBase::SharedPtr raspicam_timer_;
+  /**
+   * @brief timer for diagnostics
+   */
+  rclcpp::TimerBase::SharedPtr diag_timer_;
+  /**
+   * @brief utility class for updating diagnostics
+   * @ref diag_updater_
+   */
   diagnostic_updater::Updater diag_updater_;
+  /**
+   * @brief callback function for checking diagnostics in timer mode
+   * @param status this argument passed to the diag_updater_
+   * @sa diag_updater_
+   */
   void captureRateDiag(diagnostic_updater::DiagnosticStatusWrapper & status);
+  /**
+   * @brief ROS subscriber for trigger
+   */
   rclcpp::Subscription<builtin_interfaces::msg::Time>::SharedPtr trigger_sub_;
+  /**
+   * @brief the time which we capture latest images
+   */
   rclcpp::Time last_capture_time_;
 };
 }  // namespace raspicam_driver
