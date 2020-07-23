@@ -19,7 +19,7 @@
  * @version 0.1
  * @date 2020-07-24
  * @copyright Copyright (c) 2020
- * 
+ *
  */
 
 #include <raspicam_driver/raspicam_driver_component.hpp>
