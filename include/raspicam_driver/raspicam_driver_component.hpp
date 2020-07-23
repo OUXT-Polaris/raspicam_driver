@@ -12,6 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/**
+ * @file raspicam_driver_component.hpp
+ */
+
+/**
+ * @mainpage view_all node for color_names
+ * @image html images/logo.png
+ * @author Masaya Kataoka
+ * @date 2020-07-17
+ */
+
 #ifndef RASPICAM_DRIVER__RASPICAM_DRIVER_COMPONENT_HPP_
 #define RASPICAM_DRIVER__RASPICAM_DRIVER_COMPONENT_HPP_
 
@@ -70,6 +81,9 @@ extern "C" {
 #include <string>
 #include <vector>
 
+/**
+ * @brief namespace for raspicam driver
+ */
 namespace raspicam_driver
 {
 class RaspiCamDriverComponent : public rclcpp::Node
@@ -80,7 +94,13 @@ public:
   ~RaspiCamDriverComponent();
 
 private:
+  /**
+   * @brief raspi camera capture class in raspicam library
+   */
   raspicam::RaspiCam_Cv Camera;
+  /**
+   * @brief if true, this node works with trigger mode
+   */
   bool enable_trigger_;
   double trigger_duration_;
   void triggerCallback(const builtin_interfaces::msg::Time::SharedPtr msg);

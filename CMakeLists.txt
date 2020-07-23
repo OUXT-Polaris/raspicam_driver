@@ -25,6 +25,8 @@ find_package(cv_bridge REQUIRED)
 find_package(camera_calibration_parsers REQUIRED)
 find_package(diagnostic_updater REQUIRED)
 find_package(raspicam REQUIRED)
+find_package(document_generator REQUIRED)
+include("${document_generator_DIR}/document_generator.cmake")
 
 find_package(OpenCV REQUIRED)
 
@@ -46,6 +48,9 @@ ament_target_dependencies(raspicam_driver_component
   raspicam)
 rclcpp_components_register_nodes(raspicam_driver_component
   "raspicam_drive::RaspiCamDriverComponent")
+add_document(raspicam_driver_component)
+
+add_package_document(MasayaKataoka)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
