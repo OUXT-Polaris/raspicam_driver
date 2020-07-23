@@ -75,6 +75,7 @@ extern "C" {
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/compressed_image.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <camera_calibration_parsers/parse_yml.h>
 #include <string>
 #include <vector>
 

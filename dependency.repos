@@ -3,3 +3,7 @@ repositories:
     url: https://github.com/OUXT-Polaris/raspicam.git
     type: git
     version: master
+  document_generator:
+    url: https://github.com/OUXT-Polaris/document_generator.git
+    type: git
+    version: master
