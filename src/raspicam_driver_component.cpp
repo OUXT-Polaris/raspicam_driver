@@ -17,6 +17,7 @@
 #include <rclcpp_components/register_node_macro.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <vector>
+#include <string>
 
 namespace raspicam_driver
 {
@@ -58,8 +59,8 @@ RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & opt
       create_wall_timer(std::chrono::milliseconds(capture_duration_),
         std::bind(&RaspiCamDriverComponent::timerCallback, this));
     using namespace std::literals::chrono_literals;
-    raspicam_timer_ = 
-      create_wall_timer((100ms),std::bind(&RaspiCamDriverComponent::diagCallback,this));
+    raspicam_timer_ =
+      create_wall_timer((100ms), std::bind(&RaspiCamDriverComponent::diagCallback, this));
   }
 }
 
@@ -76,17 +77,15 @@ void RaspiCamDriverComponent::diagCallback()
 void RaspiCamDriverComponent::captureRateDiag(diagnostic_updater::DiagnosticStatusWrapper & status)
 {
   auto duration = (get_clock()->now() - last_capture_time_).seconds();
-  if (duration > 1.0)
-  {
-    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::ERROR, "cannot capture image in 1 sec.");
-  }
-  else if(duration > 0.3)
-  {
-    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::WARN, "cannot capture image in 0.3 sec.");
-  }
-  else
-  {
-    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::OK, "raspicam_driver is running in timer mode.");
+  if (duration > 1.0) {
+    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::ERROR,
+      "cannot capture image in 1 sec.");
+  } else if (duration > 0.3) {
+    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::WARN,
+      "cannot capture image in 0.3 sec.");
+  } else {
+    status.summaryf(diagnostic_msgs::msg::DiagnosticStatus::OK,
+      "raspicam_driver is running in timer mode.");
   }
 }
 
