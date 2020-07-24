@@ -28,6 +28,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <vector>
 #include <string>
+#include <fstream>
 
 namespace raspicam_driver
 {
@@ -41,14 +42,32 @@ RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & opt
   get_parameter("trigger_duration", trigger_duration_);
   declare_parameter("compress", true);
   get_parameter("compress", compress_);
-  declare_parameter("frame_id", "front_camera");
-  get_parameter("frame_id", frame_id_);
   declare_parameter("capture_frequency", 30);
   get_parameter("capture_duration", capture_duration_);
-  std::string hardware_id;
-  declare_parameter("hardware_id", "raspicam");
-  get_parameter("hardware_id", hardware_id);
-  diag_updater_.setHardwareID(hardware_id);
+  declare_parameter("camera_name", "front_camera");
+  get_parameter("camera_name", camera_name_);
+  declare_parameter("camera_info_yaml_path", "");
+  get_parameter("camera_info_yaml_path", camera_info_yaml_path_);
+  if (camera_info_yaml_path_ == "") {
+    RCLCPP_ERROR(get_logger(), "parameter camera_info_yaml_path is empty");
+    return;
+  }
+  try {
+    std::ifstream ifs(camera_info_yaml_path_, std::ios::in);
+    std::string yaml_str;
+    ifs >> yaml_str;
+    auto ret =
+      camera_calibration_parsers::parseCalibrationYml(yaml_str, camera_name_, camera_info_);
+    if (!ret) {
+      RCLCPP_ERROR(get_logger(), "failed to parse yaml file");
+      return;
+    }
+  } catch (const std::exception & e) {
+    std::cerr << e.what() << '\n';
+    RCLCPP_ERROR(get_logger(), "e.what()");
+    return;
+  }
+  diag_updater_.setHardwareID(camera_name_);
   std::vector<int> params_ = std::vector<int>(2);
   params_[0] = CV_IMWRITE_JPEG_QUALITY;
   declare_parameter("jpeg_quality", 75);
@@ -59,6 +78,7 @@ RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & opt
   } else {
     image_pub_ = this->create_publisher<sensor_msgs::msg::Image>("~/image_raw", 1);
   }
+  camera_info_pub_ = this->create_publisher<sensor_msgs::msg::CameraInfo>("~/image_raw", 1);
   if (enable_trigger_) {
     trigger_sub_ = this->create_subscription<builtin_interfaces::msg::Time>("trigger", 1,
         std::bind(&RaspiCamDriverComponent::triggerCallback, this, std::placeholders::_1));
@@ -106,12 +126,15 @@ bool RaspiCamDriverComponent::captureImage(rclcpp::Time stamp)
   Camera.retrieve(image);
   cv_bridge::CvImagePtr cv_ptr(new cv_bridge::CvImage);
   cv_ptr->header.stamp = stamp;
-  cv_ptr->header.frame_id = frame_id_;
+  cv_ptr->header.frame_id = camera_info_.header.frame_id;
+  camera_info_.header.stamp = stamp;
   if (compress_) {
     sensor_msgs::msg::CompressedImage compressed;
     try {
       if (cv::imencode(".jpg", image, compressed.data, params_)) {
         compressed_image_pub_->publish(compressed);
+        camera_info_pub_->publish(camera_info_);
+        return true;
       }
     } catch (cv_bridge::Exception & e) {
       RCLCPP_ERROR(get_logger(), "%s", e.what());
@@ -123,6 +146,7 @@ bool RaspiCamDriverComponent::captureImage(rclcpp::Time stamp)
   } else {
     cv_ptr->image = image;
     image_pub_->publish(*cv_ptr->toImageMsg());
+    camera_info_pub_->publish(camera_info_);
     return true;
   }
   return false;

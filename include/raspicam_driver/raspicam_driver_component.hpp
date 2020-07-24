@@ -125,10 +125,6 @@ private:
    */
   bool compress_;
   /**
-   * @brief optical frame id of the camera (ex. front_camera_optical)
-   */
-  std::string frame_id_;
-  /**
    * @brief capture duration in timer mode (ms)
    */
   int capture_duration_;
@@ -171,6 +167,22 @@ private:
    * @brief the time which we capture latest images
    */
   rclcpp::Time last_capture_time_;
+  /**
+   * @brief full path of the calibration yaml file
+   */
+  std::string camera_info_yaml_path_;
+  /**
+   * @brief name pf the camera
+   */
+  std::string camera_name_;
+  /**
+   * @brief camera info of the raspicam
+   */
+  sensor_msgs::msg::CameraInfo camera_info_;
+  /**
+   * @brief ROS publisher for camera info topic
+   */
+  rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr camera_info_pub_;
 };
 }  // namespace raspicam_driver
 
