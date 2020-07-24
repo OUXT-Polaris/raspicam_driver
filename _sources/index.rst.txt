@@ -1,0 +1,11 @@
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+raspicam_driver_component: documentation_raspicam_driver_component_
+
+.. _documentation_raspicam_driver_component: raspicam_driver_component/raspicam_driver_component/html/index.html
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

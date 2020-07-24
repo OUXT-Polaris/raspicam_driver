@@ -1,0 +1,2 @@
+warning: Include graph for 'raspicam_driver_component.hpp' not generated, too many nodes. Consider increasing DOT_GRAPH_MAX_NODES.
+/home/runner/ros2_ws/src/raspicam_driver/include/raspicam_driver/raspicam_driver_component.hpp:18: warning: image file images/logo.png is not found in IMAGE_PATH: assuming external image.
