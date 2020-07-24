@@ -126,9 +126,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a67a928e10d7c5921b4ddcccea4f988b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a67a928e10d7c5921b4ddcccea4f988b3">compress_</a></td></tr>
 <tr class="memdesc:a67a928e10d7c5921b4ddcccea4f988b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">if true, publish image as sensor_msgs/msg/CompressedImage (jpeg format)  <a href="#a67a928e10d7c5921b4ddcccea4f988b3">More...</a><br /></td></tr>
 <tr class="separator:a67a928e10d7c5921b4ddcccea4f988b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afce5b28b07ab8bd0495c2bcdce82a578"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#afce5b28b07ab8bd0495c2bcdce82a578">frame_id_</a></td></tr>
-<tr class="memdesc:afce5b28b07ab8bd0495c2bcdce82a578"><td class="mdescLeft">&#160;</td><td class="mdescRight">optical frame id of the camera (ex. front_camera_optical)  <a href="#afce5b28b07ab8bd0495c2bcdce82a578">More...</a><br /></td></tr>
-<tr class="separator:afce5b28b07ab8bd0495c2bcdce82a578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e7eb78a8d56937b9b88dcd8e407a1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a12e7eb78a8d56937b9b88dcd8e407a1d">capture_duration_</a></td></tr>
 <tr class="memdesc:a12e7eb78a8d56937b9b88dcd8e407a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">capture duration in timer mode (ms)  <a href="#a12e7eb78a8d56937b9b88dcd8e407a1d">More...</a><br /></td></tr>
 <tr class="separator:a12e7eb78a8d56937b9b88dcd8e407a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,6 +153,18 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ade5bcac6211ef55986a11732bed3e345"><td class="memItemLeft" align="right" valign="top">rclcpp::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ade5bcac6211ef55986a11732bed3e345">last_capture_time_</a></td></tr>
 <tr class="memdesc:ade5bcac6211ef55986a11732bed3e345"><td class="mdescLeft">&#160;</td><td class="mdescRight">the time which we capture latest images  <a href="#ade5bcac6211ef55986a11732bed3e345">More...</a><br /></td></tr>
 <tr class="separator:ade5bcac6211ef55986a11732bed3e345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe261528d0456a483e1e6b240184d75a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#afe261528d0456a483e1e6b240184d75a">camera_info_yaml_path_</a></td></tr>
+<tr class="memdesc:afe261528d0456a483e1e6b240184d75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">full path of the calibration yaml file  <a href="#afe261528d0456a483e1e6b240184d75a">More...</a><br /></td></tr>
+<tr class="separator:afe261528d0456a483e1e6b240184d75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6ca60a2810034287719213d8868d83"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aeb6ca60a2810034287719213d8868d83">camera_name_</a></td></tr>
+<tr class="memdesc:aeb6ca60a2810034287719213d8868d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">name pf the camera  <a href="#aeb6ca60a2810034287719213d8868d83">More...</a><br /></td></tr>
+<tr class="separator:aeb6ca60a2810034287719213d8868d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea04d3a7ba00bcdb0c7626c9dceb6f0"><td class="memItemLeft" align="right" valign="top">sensor_msgs::msg::CameraInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a4ea04d3a7ba00bcdb0c7626c9dceb6f0">camera_info_</a></td></tr>
+<tr class="memdesc:a4ea04d3a7ba00bcdb0c7626c9dceb6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera info of the raspicam  <a href="#a4ea04d3a7ba00bcdb0c7626c9dceb6f0">More...</a><br /></td></tr>
+<tr class="separator:a4ea04d3a7ba00bcdb0c7626c9dceb6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5524396dbfafbc5e0be482910070e4aa"><td class="memItemLeft" align="right" valign="top">rclcpp::Publisher&lt; sensor_msgs::msg::CameraInfo &gt;::SharedPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a5524396dbfafbc5e0be482910070e4aa">camera_info_pub_</a></td></tr>
+<tr class="memdesc:a5524396dbfafbc5e0be482910070e4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">ROS publisher for camera info topic.  <a href="#a5524396dbfafbc5e0be482910070e4aa">More...</a><br /></td></tr>
+<tr class="separator:a5524396dbfafbc5e0be482910070e4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab27083b49d169966493b075272d1ba64"></a>
@@ -182,7 +191,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a52788a5ca74a6eac1dce38f2e82dd560">Camera</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a12e7eb78a8d56937b9b88dcd8e407a1d">capture_duration_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aefee9c669dd9f21c42b3d6aa1a43a7d4">captureRateDiag()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a67a928e10d7c5921b4ddcccea4f988b3">compress_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a929eac67785523195673d214229640d1">compressed_image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#af8b8f0c24285a0595c40c966ff1df01b">diag_timer_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a371ce5b4bd3c9917c85b127f49621b08">diag_updater_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a598aab9a2401a31d7f71f63b3dc35b47">diagCallback()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#af0217e3b53fdc8879b63d1c2b6d4ed36">enable_trigger_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#afce5b28b07ab8bd0495c2bcdce82a578">frame_id_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a7be953b27666bd414a00da10d6625447">image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ade5bcac6211ef55986a11732bed3e345">last_capture_time_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aed64d04a6d32d8318326547a745de74b">params_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a337f9db2a3a691d720650c2c68415d91">timer_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a74c31e709eec51a0bc4a79dcdf712b83">timerCallback()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a8af1e9421072d7dc8d1d12d5d1a5d37d">trigger_duration_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a43d80942882ec084d7ecff290f3acf30">trigger_sub_</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a562ad153d53e2fd2e94d366ff11a0640">triggerCallback()</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a52788a5ca74a6eac1dce38f2e82dd560">Camera</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a4ea04d3a7ba00bcdb0c7626c9dceb6f0">camera_info_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a5524396dbfafbc5e0be482910070e4aa">camera_info_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#afe261528d0456a483e1e6b240184d75a">camera_info_yaml_path_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aeb6ca60a2810034287719213d8868d83">camera_name_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a12e7eb78a8d56937b9b88dcd8e407a1d">capture_duration_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aefee9c669dd9f21c42b3d6aa1a43a7d4">captureRateDiag()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a67a928e10d7c5921b4ddcccea4f988b3">compress_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a929eac67785523195673d214229640d1">compressed_image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#af8b8f0c24285a0595c40c966ff1df01b">diag_timer_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a371ce5b4bd3c9917c85b127f49621b08">diag_updater_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a598aab9a2401a31d7f71f63b3dc35b47">diagCallback()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#af0217e3b53fdc8879b63d1c2b6d4ed36">enable_trigger_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a7be953b27666bd414a00da10d6625447">image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ade5bcac6211ef55986a11732bed3e345">last_capture_time_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aed64d04a6d32d8318326547a745de74b">params_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a337f9db2a3a691d720650c2c68415d91">timer_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a74c31e709eec51a0bc4a79dcdf712b83">timerCallback()</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a8af1e9421072d7dc8d1d12d5d1a5d37d">trigger_duration_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a43d80942882ec084d7ecff290f3acf30">trigger_sub_</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a562ad153d53e2fd2e94d366ff11a0640">triggerCallback()</a>.</p>
 
 </div>
 </div>
@@ -230,7 +239,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a52788a5ca74a6eac1dce38f2e82dd560">Camera</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a67a928e10d7c5921b4ddcccea4f988b3">compress_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a929eac67785523195673d214229640d1">compressed_image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#afce5b28b07ab8bd0495c2bcdce82a578">frame_id_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a7be953b27666bd414a00da10d6625447">image_pub_</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aed64d04a6d32d8318326547a745de74b">params_</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a52788a5ca74a6eac1dce38f2e82dd560">Camera</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a4ea04d3a7ba00bcdb0c7626c9dceb6f0">camera_info_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a5524396dbfafbc5e0be482910070e4aa">camera_info_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a67a928e10d7c5921b4ddcccea4f988b3">compress_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a929eac67785523195673d214229640d1">compressed_image_pub_</a>, <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a7be953b27666bd414a00da10d6625447">image_pub_</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#aed64d04a6d32d8318326547a745de74b">params_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a74c31e709eec51a0bc4a79dcdf712b83">timerCallback()</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#a562ad153d53e2fd2e94d366ff11a0640">triggerCallback()</a>.</p>
 
@@ -402,6 +411,110 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4ea04d3a7ba00bcdb0c7626c9dceb6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea04d3a7ba00bcdb0c7626c9dceb6f0">&#9670;&nbsp;</a></span>camera_info_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sensor_msgs::msg::CameraInfo raspicam_driver::RaspiCamDriverComponent::camera_info_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>camera info of the raspicam </p>
+
+<p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ae34c43429f2021d480ea5c27c50aa118">captureImage()</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
+
+</div>
+</div>
+<a id="a5524396dbfafbc5e0be482910070e4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5524396dbfafbc5e0be482910070e4aa">&#9670;&nbsp;</a></span>camera_info_pub_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rclcpp::Publisher&lt;sensor_msgs::msg::CameraInfo&gt;::SharedPtr raspicam_driver::RaspiCamDriverComponent::camera_info_pub_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ROS publisher for camera info topic. </p>
+
+<p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ae34c43429f2021d480ea5c27c50aa118">captureImage()</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
+
+</div>
+</div>
+<a id="afe261528d0456a483e1e6b240184d75a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe261528d0456a483e1e6b240184d75a">&#9670;&nbsp;</a></span>camera_info_yaml_path_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string raspicam_driver::RaspiCamDriverComponent::camera_info_yaml_path_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>full path of the calibration yaml file </p>
+
+<p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
+
+</div>
+</div>
+<a id="aeb6ca60a2810034287719213d8868d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6ca60a2810034287719213d8868d83">&#9670;&nbsp;</a></span>camera_name_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string raspicam_driver::RaspiCamDriverComponent::camera_name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>name pf the camera </p>
+
+<p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
+
+</div>
+</div>
 <a id="a12e7eb78a8d56937b9b88dcd8e407a1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12e7eb78a8d56937b9b88dcd8e407a1d">&#9670;&nbsp;</a></span>capture_duration_</h2>
 
@@ -555,32 +668,6 @@ Private Attributes</h2></td></tr>
 <p>if true, this node works with trigger mode </p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
-
-</div>
-</div>
-<a id="afce5b28b07ab8bd0495c2bcdce82a578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afce5b28b07ab8bd0495c2bcdce82a578">&#9670;&nbsp;</a></span>frame_id_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string raspicam_driver::RaspiCamDriverComponent::frame_id_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>optical frame id of the camera (ex. front_camera_optical) </p>
-
-<p class="reference">Referenced by <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ae34c43429f2021d480ea5c27c50aa118">captureImage()</a>, and <a class="el" href="../../d1/d8f/classraspicam__driver_1_1RaspiCamDriverComponent.html#ab27083b49d169966493b075272d1ba64">RaspiCamDriverComponent()</a>.</p>
 
 </div>
 </div>
