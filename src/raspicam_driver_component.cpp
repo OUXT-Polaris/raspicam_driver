@@ -35,7 +35,7 @@ namespace raspicam_driver
 RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & options)
 : Node("raspicam_driver", options), diag_updater_(this)
 {
-  Camera.set(CV_CAP_PROP_FORMAT, CV_8UC3);
+  Camera.set(CAP_PROP_FORMAT, CV_8UC3);
   declare_parameter("enable_trigger", false);
   get_parameter("enable_trigger", enable_trigger_);
   declare_parameter("trigger_duration", 0.01);
@@ -69,7 +69,7 @@ RaspiCamDriverComponent::RaspiCamDriverComponent(const rclcpp::NodeOptions & opt
   }
   diag_updater_.setHardwareID(camera_name_);
   std::vector<int> params_ = std::vector<int>(2);
-  params_[0] = CV_IMWRITE_JPEG_QUALITY;
+  params_[0] = IMWRITE_JPEG_QUALITY;
   declare_parameter("jpeg_quality", 75);
   get_parameter("jpeg_quality", params_[0]);
   if (compress_) {
