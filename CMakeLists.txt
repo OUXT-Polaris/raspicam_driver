@@ -46,7 +46,7 @@ ament_target_dependencies(raspicam_driver_component
   raspicam)
 rclcpp_components_register_nodes(raspicam_driver_component
   "raspicam_drive::RaspiCamDriverComponent")
-  
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
